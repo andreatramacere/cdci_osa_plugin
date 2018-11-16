@@ -121,7 +121,7 @@ class OsaMosaicQuery(ImageQuery):
             query_out.prod_dictionary['file_name'] = [str(query_image.file_path.name),
                                                       str(query_catalog.file_path.name + '.fits'),
                                                       str(query_catalog.file_path.name + '.reg')]
-            query_out.prod_dictionary['download_file_name'] = 'image.tgz'
+            query_out.prod_dictionary['download_file_name'] = 'image.fits.gz'
             query_out.prod_dictionary['catalog'] = query_catalog.catalog.get_dictionary()
         else:
             query_out.prod_dictionary['numpy_data_product_list'] = [query_image.data]
@@ -199,6 +199,13 @@ class IsgriMosaicQuery(OsaMosaicQuery):
         return prod_list
 
 
+ 
+
+
+
+
+
+
 
 
 
@@ -218,7 +225,7 @@ class IsgriMosaicQuery(OsaMosaicQuery):
                   'ddosa.ImageBins(use_ebins=[(%(E1)s,%(E2)s)],use_version="onebin_%(E1)s_%(E2)s")'%dict(E1=E1,E2=E2),
                   'ddosa.ImagingConfig(use_SouFit=0,use_version="soufit0")',
                    ]
-            
+
         return target, modules, assume
         
 
