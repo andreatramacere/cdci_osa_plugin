@@ -115,7 +115,11 @@ class OsaMosaicQuery(ImageQuery):
         query_catalog.write(overwrite=True, format='ds9')
 
         if api==False:
-            html_fig = query_image.get_html_draw(catalog=query_catalog.catalog)
+            #TODO  MAKE THIS BETTER
+            try:
+                html_fig = query_image.get_html_draw(catalog=query_catalog.catalog,data_ID=0)
+            except:
+                html_fig = query_image.get_html_draw(catalog=query_catalog.catalog, data_ID=1)
 
         #print('--> query was ok 2')
         query_out = QueryOutput()
